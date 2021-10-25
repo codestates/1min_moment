@@ -6,6 +6,12 @@ import SignIn from "./component/SignIn"
 import MyPage from "./pages/MyPage"
 import MyVedio from "./pages/MyVedio"
 import MyUpload from "./pages/MyUpload"
+// import logo from './logo.svg';
+import './App.css';
+import Nav from './component/nav'
+import Slider from './component/slider'
+import Main from './component/main'
+
 
 axios.defaults.withCredentials = true;
 
@@ -42,7 +48,19 @@ function App() {
   return (
     
     <div className="App">
-      <BrowserRouter>
+       <div>
+      <Nav/>
+     </div> 
+     <div>
+       {/* <Slider/> */}
+       
+       <Main/>
+       </div>
+      
+      
+      
+      
+      {/* <BrowserRouter>
          <header className="App-header" onClick={openModalFunc}>
            로그인
          </header>
@@ -57,7 +75,7 @@ function App() {
            <Route path="/myvedio"><MyVedio /></Route>
            <Route path="/myupload"><MyUpload /></Route>
          </Switch>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
