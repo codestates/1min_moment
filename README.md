@@ -1,5 +1,5 @@
 # 1min_moment
-![](https://i.ibb.co/Dksz6w3/1.png)
+![](https://i.ibb.co/0cFrhn0/1.png)
 
 직접 찾아보기는 귀찮고, 모르고 지나가기엔 찝찝한 일상의 궁금증들!
 <br>
