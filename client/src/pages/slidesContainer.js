@@ -1,5 +1,5 @@
 import Slider from '../component/slider'
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState} from 'react'
 import './slideContainer.css'
 
 function SlidesContainer({getvideoInfo,getCategory}){

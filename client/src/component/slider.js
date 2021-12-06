@@ -1,11 +1,7 @@
-//npm unstall react-slick --save
 import './slider.css'
 import React, {useState, useEffect, useRef} from 'react'
 import Slide from "./slide"
-import Video from './video'
 import axios from 'axios';
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import VideoPage from '../pages/videopage'
 const TOTAL_SLIDES = 390;
 
 const category = ['생활','교통','법','의료','교육','무언가1','무언가2','무언가3','무언가4']
@@ -14,14 +10,8 @@ const category = ['생활','교통','법','의료','교육','무언가1','무언
 function Slider({idx,idx2,getvideoInfo,getCategory}){
     let itemsToRender = null;
    
-    const [sliderList, setSliderList] = useState([])
-    const [loading, SetLoading] = useState(false)
     const [array, SetArray] = useState([])
     
-    
-    let categoryContainer = []
-
-   // const [currentSlide, setCurrentSlide]=useState(0);
     const slideRef = useRef(null);
     const nextSlide = () => {
         var sliderElem = document.querySelector(`.${idx}`);
@@ -51,9 +41,7 @@ function Slider({idx,idx2,getvideoInfo,getCategory}){
    
      useEffect(() => {
         var sliderElem = document.querySelector( `.${idx}`)
-        //sliderElem.style.transition = "all 0.5s ease-in-out";
          sliderElem.style.transform = `translateX(-${333}vw)`; // 사이드 * 3000
-        // sliderElem.dataset.currentSlide = 3000
 
        }, []);
 
@@ -98,7 +86,6 @@ function Slider({idx,idx2,getvideoInfo,getCategory}){
     return(
         <div className='slider_container'>
             <div class = 'wrapper'>
-            {/* {currentSlide} */}
             <div className='slider_info'>
             <div>{category[idx2]}</div> 
             <div  className={category[idx2]} onClick={getrealcategory}>+더보기</div>

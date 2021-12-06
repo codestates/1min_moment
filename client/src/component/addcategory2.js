@@ -1,9 +1,7 @@
 import { useState } from 'react'
 
-//생활,교통,법,의료,교육, 
-
 export default function Addcategory2({confirmBtn,handleCategoty}){
-//const [showCategory, setShowCategory]=useState(false)
+
   const [categoryInfo, setcategoryInfo]= useState('')
   const [checkList, setCheckList] = useState([])
 

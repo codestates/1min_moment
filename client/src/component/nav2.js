@@ -1,11 +1,10 @@
 import './nav.css'
 import {useMediaQuery} from 'react-responsive'
 import {Link,useHistory} from 'react-router-dom';
-import Menu from './menu'
-import React, { useState,useEffect,useContext } from 'react';
+import React, { useState } from 'react';
 
 
-function Nav2({openModalFunc,openSideBarlFunc , handleSignOut,getSearch,searchInfo, setSearchInfo, onReset}){
+function Nav2({openModalFunc, getSearch,searchInfo, setSearchInfo, onReset}){
     const history = useHistory();
    
 

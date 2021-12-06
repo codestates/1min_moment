@@ -1,17 +1,10 @@
-
-import { useState } from 'react'
 import './addcategory.css'
-//생활,교통,법,의료,교육, 
 
 export default function Addcategory({confirmBtn,handleCategoty}){
-//const [showCategory, setShowCategory]=useState(false)
-  const [categoryInfo, setcategoryInfo]= useState('')
-  const [checkList, setCheckList] = useState([])
 
    const handleCategoty2=(e)=>{
     handleCategoty(e)
    }
-
 
     return(
     <div className='categorycaontainer'>
