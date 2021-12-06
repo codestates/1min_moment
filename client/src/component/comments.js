@@ -2,10 +2,8 @@ import './comments.css'
 import axios from 'axios';
 import { useCallback,useState, useEffect } from 'react'
 import { Comment, Avatar, Button, Input } from 'antd';
-//import { ConfigurationServicePlaceholders } from 'aws-sdk/lib/config_service_placeholders';
-const {TextArea} = Input;
 
- 
+const {TextArea} = Input;
 
 function Comments({accessToken,clickMyVideoData,userInfo}) {
   let renderComment = null;

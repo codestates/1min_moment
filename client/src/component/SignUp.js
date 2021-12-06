@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import axios from 'axios'
-// import { useHistory } from "react-router-dom";
 import "./SignUp.css"
 import SignUpCompletion from "./SignUpCompletion"
 
 axios.defaults.withCredentials = true;
 
 const SignUp = ({ openSignUpModalFunc }) => {
-
-    // const history = useHistory();
 
     const [ errorMessage, setErrorMessage ] = useState('') 
     const [ signUpInfo, setSignUpInfo ] = useState({

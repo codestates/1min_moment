@@ -8,15 +8,12 @@ import MyLikeVideo from "./pages/MyLikeVideo"
 import MyUploadVideo from "./pages/MyUploadVideo"
 import Nav from './component/nav'
 import Nav2 from './component/nav2'
-// import Slider from './component/slider'
 import Main from './component/main'
 import VideoPage from './pages/videopage'
 import VideoPage2 from './pages/videopage2'
 import UploadVideo from './pages/uploadVideo'
-import Loading from './pages/Loading'
 import Introduce from './component/Introduce'
- import SlidesContainer from './pages/slidesContainer'
-import Footer from './component/Footer'
+
 
 axios.defaults.withCredentials = true;
 
@@ -29,45 +26,19 @@ function App() {
   const [accessToken, setAccessToken] = useState(null);
   const [category, setcategory] = useState(null);
   const [searchInfo, setSearchInfo] = useState('');
-//   const [videoInfo, setVideoInfo] = useState({
-//     image:'',
-//     title:'',
-//     channel:'',
-//     views:'',
-//     timestamp:'',
-//     video:'',
-//     video_id:'',
-//     category1:'',
-//     category2:'',
-//     category3:''
-// });
 
-const getSearch= (search) =>{
-  setSearchInfo(search)
-  console.log("App.js getSearch : ", search)
- }
 
- const onReset = () => {
-  setSearchInfo('');
-}
- const getCategory= (category) =>{
-  setcategory(category)
- } 
+  const getSearch= (search) =>{
+    setSearchInfo(search)
+    console.log("App.js getSearch : ", search)
+   }
   
-// const getvideoInfo = (image,title, views, timestamp,video,video_id,category1,category2,category3) => {
-  
-//   setVideoInfo({
-//       image:image,
-//       title:title,
-//       views:views,
-//       timestamp:timestamp,
-//       video:video,
-//       video_id:video_id,
-//       category1:category1,
-//       category2:category2,
-//       category3:category3
-//   })
-// }
+   const onReset = () => {
+    setSearchInfo('');
+   }
+   const getCategory= (category) =>{
+    setcategory(category)
+   } 
 
   const handleAccessToken = (tokenData) => { // 소셜로그인 후 함수
 

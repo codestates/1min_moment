@@ -1,40 +1,24 @@
-import { BrowserRouter, Route, Switch, useHistory, Link} from 'react-router-dom';
-import React, {useState, useEffect, useCallback} from 'react';
+import { useHistory } from 'react-router-dom';
+import React, {useState, useCallback} from 'react';
 import axios from "axios"
 import './uploadVideo.css'
-import  Addcategory2 from '../component/addcategory2'
 import AWS from "aws-sdk";
 import { v4 } from 'uuid';
-// import { Divider } from '@material-ui/core';
 import {useDropzone} from 'react-dropzone'
-import { Button } from '@material-ui/core';
-//const ffmpeg = require('fluent-ffmpeg');
-//axios.defaults.withCredentials = true;
 
 
 function UploadVideo({accessToken}) {
 
-
-
   const history = useHistory();
 
-
-  //const [accessToken, setAccessToken] = useState(null);
   const [selectedFile, setSelectedFile] = useState('');
-  const [category, setCategory] = useState('')
   const [title, setTitle] = useState('')
-  //const [checkList, setCheckList] = useState([])
   const [checkList2, setCheckList2] = useState([])
   const [currentCategory, setCurrentCategory]=useState('');
   const [showCategory, setshowCategory]=useState(false)
   const [imgData , setImgData] = useState(null)
-  const { Dropzone } = require("dropzone");
- 
-
 
   let checkList = []
-
-
 
   const confirmBtn = () =>{
     if(checkList.length>3){
@@ -45,7 +29,6 @@ function UploadVideo({accessToken}) {
     setshowCategory(!showCategory)
      setCurrentCategory(checkList.join())
      setCheckList2(checkList)
-    // setCheckList([])
     }
 }
 
@@ -56,8 +39,6 @@ const handleCategoty2=(e)=>{
   const handleCategoty = (e) =>{
          if(!checkList.includes(e.target.value)){
              if(e.target.checked === true){
-             //setcategoryInfo(categoryInfo+`${e.target.value}`)
-            // setCheckList([...checkList,e.target.value])
              checkList.push(e.target.value)
              }
          }
@@ -72,14 +53,8 @@ const handleCategoty2=(e)=>{
      
    }
    const openCategory = (e) =>{
-   
-    setshowCategory(!showCategory)
-   // setCheckList([])
-     
+    setshowCategory(!showCategory)     
     }
-
-
-  
 
   const handleTargetTitle=(e)=>{
     setTitle(e.target.value)
@@ -120,9 +95,8 @@ const handleCategoty2=(e)=>{
       }
     })
 
-      const videoLink =`https://${process.env.REACT_APP_BUCKET}.s3.ap-northeast-2.amazonaws.com/videos/${videoName}.mp4`
+     const videoLink =`https://${process.env.REACT_APP_BUCKET}.s3.ap-northeast-2.amazonaws.com/videos/${videoName}.mp4`
         
-     // var buf = Buffer.from(imgData.replace(/^data:image\/\w+;base64,/, ""),'base64')
      const imgName = v4();
       var data = {
         Bucket: `${process.env.REACT_APP_BUCKET}/images`,
@@ -151,76 +125,27 @@ const handleCategoty2=(e)=>{
   }
 
   const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-    //비디오태그를만들어요-> 태그를만들고 거기서 canvas 이용해서 비디오 특정부위를 따오는거에요.-> 안걸면 -> 네 
-    
-    //1안 썸네일 자동생성만들기 버튼
-    //드래그하거나 파일 업로드하면 
-    //비디오태그생성
-    //그후 썸네일 생성하게끔 그런식으로 바꿀껀데 .. 이건 시간남으면 하겠습니다.
-    // 편법쓴거라서 
-    //잘대처해야 되지않을까 .. 싶네요
+
     setSelectedFile(acceptedFiles[0])
     var canvas = document.getElementById('canvas'); //이미지를 따오기
       var video = document.getElementById('video'); //video tag 넣기
       const file = acceptedFiles[0]; //파일정보를가져와서
       const videourl = URL.createObjectURL(file); //비디오 url생성
-      video.setAttribute("src", videourl+'#t=20'); //비디오가만들어지는데 이거는 내장함수잖아요 ... 안되더라고요..
-///////////////////////////
+      video.setAttribute("src", videourl+'#t=20'); 
+
       video.onloadeddata = function(){ //이미지 따오는 함수 비디오가 업로드되엇을때 
-        //setTimeout(() => {
+
           let ctx = canvas.getContext('2d');  // 2d
           canvas.getContext('2d').drawImage(video, 0, 0, 300, 200); //그리기
          var img  = canvas.toDataURL("image/png") //url로변환하기
         setImgData(img)
-        //}, 10000);
+
         
       }
       
       
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
-
-  // function capture(){
-  //   var canvas = document.getElementById('canvas');
-  //   var video = document.getElementById('video');
-  //   video.src = link
-  //   canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-// }
-
-
-
-//   const handleUploadViudeo = () => {
-//     let categoryList = checkList.join()
-//     if(categoryList.length===2 ){
-//       categoryList.push('')
-//       categoryList.push('')
-//     }
-//     else if(category.length===1){
-//      categoryList.push('') 
-//     }
-//   axios
-//   .post(
-//     'https://localhost:4000/myvideo',{
-//       title:selectedFile.name , video:link, thumbnail:`https://image.shutterstock.com/image-illustration/halloween-pumpkin-halo-angel-on-600w-1493264564.jpg`, category1:categoryList[0], category2:categoryList[1], category3:categoryList[2]
-//     },
-//     ).then((res)=>{
-   
-//      if(res.data.message==='Video registration is complete'){
-//       alert("성공")
-//      // window.location.replace('/')
-//      }
-//      else{
-//       alert("실패")
-//      }
-    
-//      })
-   
-// }
-
-
-
-
 
   return (
           
@@ -230,7 +155,6 @@ const handleCategoty2=(e)=>{
         <img className="uploadTitle-text" src="https://i.ibb.co/ZmbDdtD/image.png" alt="" />
       </div>
       <div>
-        {/* <input type="file" onChange={uploadFile} className='addVideo'  /> */}
             <div className="filebox" > 
             <div>
           
@@ -248,9 +172,7 @@ const handleCategoty2=(e)=>{
             </div>
             
             <div className='videoInfo col-12'>
-          {/* <div className="upload-holder">
-            <input className="upload-name" value={selectedFile.name} placeholder={'파일이름'}/>
-          </div> */}
+
             <div className="upload-holder">
               <div className="title-margin"> 
                 제목
@@ -260,10 +182,7 @@ const handleCategoty2=(e)=>{
             <div className="title-margin"> 
                 카테고리설정
               </div>
-              {/* {showCategory === true ?
-          (<Addcategory2 confirmBtn={confirmBtn} handleCategoty={handleCategoty}/>)
-          :
-          null} */}
+
           <div className='categorycaontainer2 col-12'>
             <div className='category-column col-12'>
               <div className="categoryinbox col-12">

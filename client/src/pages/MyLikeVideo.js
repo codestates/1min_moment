@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import LikeVideoCard from './LikeVideoCard';
+import React, {useEffect} from 'react';
 import "./MyLikeVideo.css"
 import UploadVideoCard from './UploadVideoCard';
 

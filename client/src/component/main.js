@@ -19,14 +19,13 @@ export default function Main({category,searchResult,searchInfo,getvideoInfo,setS
     const [itemIndex, setItemIndex] = useState(0);
     const [itemList, setItemList] = useState(null)
     const [cursor, setCursor] = useState(50)
-    let used = false; 
 
-     //저위에있는것들지우고 정해진 갯수만큼 받아올꺼에요 20~30
-     // useEffect 를 사용할꺼에요 
-     // 하면서.. 저기에는 정해진 갯수만큼의 정보 -> x
+    let used = false; 
+     
      let x;
      let y;
-     const history = useHistory()
+
+    const history = useHistory()
     const openCategory = (e) =>{
    
     setshowCategory(!showCategory)
@@ -60,7 +59,6 @@ export default function Main({category,searchResult,searchInfo,getvideoInfo,setS
           }
     }
 
-    //어디선가 0.5정도 먹고있음 찾아서 처리할것!    
     const infiniteScroll = useCallback(() => {
       let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);

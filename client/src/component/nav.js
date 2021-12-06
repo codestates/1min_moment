@@ -1,8 +1,7 @@
 import './nav.css'
 import {Link,useHistory} from 'react-router-dom';
 import {useMediaQuery} from 'react-responsive'
-import Menu from './menu'
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Nav({handleSignOut,getSearch,searchInfo,setSearchInfo,onReset}){
     const history = useHistory();

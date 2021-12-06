@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './slide.css'
-import Avatar from "@material-ui/core/Avatar";
-import { BrowserRouter, Route, Switch, useHistory, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 export default function Slide({image, title, channel, views, timestamp,video, getvideoInfo,video_id,category1,category2,category3}){
-    //getvideoInfo(image, channelImage, title, channel, views, timestamp,video)
     const onClickVideo = ()=>{
 
         getvideoInfo(image,title, views, timestamp,video,video_id,category1,category2,category3)
